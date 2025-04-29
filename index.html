@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission Trip Support Letter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans leading-relaxed">
+  <section class="min-h-screen px-6 py-12 flex flex-col justify-center items-center text-center bg-blue-50 fade-in">
+    <h1 class="text-3xl font-bold mb-4">Hey friends 👋</h1>
+    <p class="text-lg max-w-md">I'm going on a mission trip and I'd love to tell you about it...</p>
+  </section>
+
+  <section class="px-6 py-12 bg-white section">
+    <h2 class="text-2xl font-semibold mb-4">🌍 What This Trip Is About</h2>
+    <p class="max-w-md mx-auto">[Share details about the location, purpose, and what you'll be doing.]</p>
+  </section>
+
+  <section class="px-6 py-12 bg-blue-50 section">
+    <h2 class="text-2xl font-semibold mb-4">❤️ Why I'm Going</h2>
+    <p class="max-w-md mx-auto">[Talk about your heart, calling, and what this trip means to you.]</p>
+  </section>
+
+  <section class="px-6 py-12 bg-white section">
+    <h2 class="text-2xl font-semibold mb-4">🙏 How You Can Help</h2>
+    <p class="max-w-md mx-auto">Your support through prayer and giving means a lot to me.</p>
+  </section>
+
+  <section class="px-6 py-12 bg-blue-50 section">
+    <h2 class="text-2xl font-semibold mb-4">💸 How to Give</h2>
+    <p class="max-w-md mx-auto">[Include a secure link to give, like GoFundMe, Venmo, church portal, etc.]</p>
+  </section>
+
+  <section class="px-6 py-12 bg-white text-center section">
+    <h2 class="text-2xl font-semibold mb-4">💬 Thank You</h2>
+    <p class="max-w-md mx-auto mb-4">Thanks so much for reading and for supporting me. If you want to talk more, reach out!</p>
+    <p class="text-sm">[Your Email / Social Media Handle]</p>
+  </section>
+
+  <script>
+    // Intersection Observer for fade-in elements
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Intersection Observer for sections
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => fadeInObserver.observe(el));
+    
+    // Observe all sections
+    document.querySelectorAll('.section').forEach(el => sectionObserver.observe(el));
+  </script>
+</body>
+</html>
